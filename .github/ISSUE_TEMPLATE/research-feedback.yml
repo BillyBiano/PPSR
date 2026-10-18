@@ -1,0 +1,33 @@
+name: Research feedback
+description: Propose a correction, counterexample, experiment, or relevant reference.
+title: "[Research] "
+body:
+  - type: dropdown
+    id: category
+    attributes:
+      label: Feedback category
+      options:
+        - Technical correction
+        - Threat model or leakage
+        - Semantic counterexample
+        - Experiment proposal
+        - Related work
+    validations:
+      required: true
+  - type: input
+    id: section
+    attributes:
+      label: Relevant RFC section
+      placeholder: "For example: Section 6.2, two-operator MPC"
+  - type: textarea
+    id: feedback
+    attributes:
+      label: Feedback
+      description: Explain the claim, assumption, or experiment you want to discuss. English or Chinese is welcome.
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidence or reproducible example
+      description: Include relevant references or synthetic examples. Do not include private data or credentials.
