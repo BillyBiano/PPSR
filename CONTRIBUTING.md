@@ -1,6 +1,6 @@
-# Contributing to BLIND
+# Contributing to PPSR
 
-BLIND is currently a research proposal. Contributions can improve its definitions, test its assumptions, or design reproducible experiments.
+PPSR is currently a research proposal. Contributions can improve its definitions, test its assumptions, or design reproducible experiments.
 
 ## Useful contributions
 

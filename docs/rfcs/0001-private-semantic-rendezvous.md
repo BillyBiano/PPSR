@@ -1,6 +1,8 @@
-# BLIND
+# PPSR
 
-### Privacy-Preserving Semantic Rendezvous
+### Privacy-preserving semantic rendezvous
+
+**private intent, mutual discovery**
 
 **Public Research Proposal · RFC-0001 · Draft v0.3 · October 2026**
 
@@ -12,13 +14,13 @@
 
 ## 1. Abstract
 
-BLIND investigates an interpersonal discovery protocol combining **on-device semantic encoding, privacy-preserving computation, and mutual consent**.
+PPSR investigates an interpersonal discovery protocol combining **on-device semantic encoding, privacy-preserving computation, and mutual consent**.
 
 Participants may disclose a coarse role, such as **Provider** or **Seeker**, while keeping detailed product descriptions, service descriptions, requirements, and contact information on their own devices. A shared, versioned encoding profile transforms free-form text into semantic representations. Clients then submit cryptographically protected matching inputs. The computation layer evaluates compatibility without requiring the discovery operator to read the source text or complete plaintext representations.
 
 A successful comparison produces only a restricted contact opportunity. Following independent approval by both participants, clients exchange explicitly authorized contact information and transition to a separate end-to-end encrypted communication channel.
 
-**BLIND concerns private discovery before contact. It is not a transaction-execution, payment-settlement, or messaging protocol.**
+**PPSR concerns private discovery before contact. It is not a transaction-execution, payment-settlement, or messaging protocol.**
 
 The proposal studies a composition of existing techniques. It does not claim a new cryptographic primitive, absolute anonymity, or zero information leakage.
 
@@ -46,7 +48,7 @@ The two descriptions need not be identical, and participants need not select a p
 The diagram below describes the intended information flow. **Protected** refers to an input representation produced by a selected cryptographic profile; it does not necessarily mean an ordinary public-key ciphertext. Candidate discovery, private output delivery, and authorization binding still require concrete protocol definitions.
 
 ```text
-                            BLIND / PRIVATE SEMANTIC RENDEZVOUS
+                            PPSR / PRIVATE SEMANTIC RENDEZVOUS
 
 +-----------------------------------------+     +-----------------------------------------+
 | USER A                                  |     | USER B                                  |
@@ -190,7 +192,7 @@ $$
 The candidate compatibility predicate is:
 
 $$
-b=\operatorname{RoleCompatible}(r_A,r_B)
+b=\mathrm{RoleCompatible}(r_A,r_B)
 \land[p(A,B)\geq\tau_v]
 \land C(h_A,h_B)
 $$
@@ -212,14 +214,14 @@ These equations define a desired functionality, **not an implemented or proven p
 Write:
 
 $$
-e'(i)=\operatorname{Protect}_{\mathrm{profile}}(e(i);\rho_i)
+e'(i)=\mathrm{Protect}_{\mathrm{profile}}(e(i);\rho_i)
 $$
 
 `rho_i` denotes fresh randomness. `Protect` must be defined by a concrete cryptographic profile; a conventional `Encrypt()` operation cannot substitute for the entire private matching mechanism.
 
 Encryption is not “irreversible to everyone.” A party with the relevant decryption capability can recover the information allowed by that capability. Identical inputs may produce different ciphertexts, but randomization does not eliminate leakage from matching outputs, message lengths, or network metadata.
 
-| Mechanism | Intended role in BLIND | What it does not independently provide |
+| Mechanism | Intended role in PPSR | What it does not independently provide |
 |---|---|---|
 | Conventional public-key or hybrid encryption | Protect transport, key material, and contact payloads | Semantic comparison of arbitrary ciphertexts |
 | MPC / 2PC | Evaluate scores and predicates over private inputs | Elimination of inference from authorized outputs |
@@ -271,7 +273,7 @@ It is not:
 
 > No ciphertext is ever decrypted at any stage.
 
-The candidate implementation must select a protocol appropriate to its malicious-participant model and specify input validation, authentication, private output delivery, and abort behavior. MP-SPDZ offers implementations under different security models, but using that framework does not automatically establish BLIND's required guarantees.[^mpspdz]
+The candidate implementation must select a protocol appropriate to its malicious-participant model and specify input validation, authentication, private output delivery, and abort behavior. MP-SPDZ offers implementations under different security models, but using that framework does not automatically establish PPSR's required guarantees.[^mpspdz]
 
 In this two-operator configuration, non-collusion is a central assumption. If one operator can obtain both complete shares, the input-confidentiality objective fails. A malicious node may also abort execution: confidentiality does not imply availability.
 
@@ -284,7 +286,7 @@ HE remains an alternative research direction. Ordinary ciphertexts under unrelat
 **A match must not automatically decrypt or disclose an intention.** The intended application rule is:
 
 $$
-\operatorname{ReleaseContact}(A,B)
+\mathrm{ReleaseContact}(A,B)
 \iff (b=1)\land\mathrm{consent}_A\land\mathrm{consent}_B\land\mathrm{valid}
 $$
 
@@ -314,7 +316,7 @@ A future formal security definition must explicitly specify each party's leakage
 
 Local AI, encrypted storage, and multiple servers do not independently establish decentralization.
 
-BLIND aims to support replaceable clients and relays, with independently operated computation parties. The project operator should not hold universal decryption capability. Software updates, operator admission, and key configuration must also have explicit control and trust models.
+PPSR aims to support replaceable clients and relays, with independently operated computation parties. The project operator should not hold universal decryption capability. Software updates, operator admission, and key configuration must also have explicit control and trust models.
 
 This RFC does not solve permissionless node admission, organizational resistance to collusion, or global traffic-analysis resistance. It does not require a blockchain or propose permanently publishing private intentions or relationship graphs on a public ledger.
 
@@ -330,7 +332,7 @@ Independent developers should be able to implement compatible clients and verify
 
 An adversary can pretend to seek product `e` and use matching feedback to infer whether another participant offers it. Randomized encryption, MPC, and ZKPs do not remove the information contained in legitimate outputs. Existing private-computation projects explicitly discuss additional inference from repeated, related queries.[^pjc]
 
-BLIND proposes to evaluate restrictions on named-target queries, exact scores, and public result lists, together with bounded matching rounds, independent consent, anonymous eligibility, and query budgets.
+PPSR proposes to evaluate restrictions on named-target queries, exact scores, and public result lists, together with bounded matching rounds, independent consent, anonymous eligibility, and query budgets.
 
 These are candidate mitigations. **They neither establish genuine purchase intent nor eliminate impersonation, phishing, or probing.** Their effectiveness must be measured, including resistance to multiple identities.
 
@@ -374,11 +376,11 @@ Early prototypes should use synthetic or appropriately consented, non-sensitive 
 
 **Matchmaking Encryption** studies disclosure governed by matching private policies.[^matchmaking] **Compass** investigates encrypted semantic retrieval and access-pattern protection.[^compass] **Index Network** provides an adjacent, intent-driven social discovery direction.[^index]
 
-BLIND's proposed scope is the composition of:
+PPSR's proposed scope is the composition of:
 
 > **Free-form local encoding → protected cross-user comparison → asynchronous candidate discovery → minimal output disclosure → mutual contact authorization.**
 
-The existence of these individual techniques does not establish that the composition has been implemented or proven secure. BLIND makes no first-of-its-kind claim.
+The existence of these individual techniques does not establish that the composition has been implemented or proven secure. PPSR makes no first-of-its-kind claim.
 
 ## 12. Request for Comments
 

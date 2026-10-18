@@ -1,6 +1,10 @@
-# BLIND
+# PPSR
 
-### 保护隐私的语义发现协议
+### Privacy-preserving semantic rendezvous
+
+**private intent, mutual discovery**
+
+保护隐私的语义发现协议
 
 让两个陌生人发现需求上的匹配，无需先向发现服务运营方公开自己的具体意图；只有双方同意后，才交换获准披露的联系方式。
 
@@ -8,11 +12,11 @@
 
 [English](README.md) · [完整 RFC（英文）](docs/rfcs/0001-private-semantic-rendezvous.md) · [研究路线图](docs/ROADMAP.md)
 
-## BLIND 想解决什么问题
+## PPSR 想解决什么问题
 
 一个人提供某种产品或服务，另一个人正在寻找它。双方希望发现彼此，却不想公开详细描述、需求条件和联系方式。
 
-BLIND 探索一种流程：在各自设备上理解自然语言描述，将受密码学机制保护的输入交给计算层进行匹配；满足条件时产生受限邀请，再由双方分别决定是否建立联系。
+PPSR 探索一种流程：在各自设备上理解自然语言描述，将受密码学机制保护的输入交给计算层进行匹配；满足条件时产生受限邀请，再由双方分别决定是否建立联系。
 
 双方不必使用完全相同的词，也不必从固定标签目录中选择需求。
 
@@ -49,4 +53,4 @@ BLIND 探索一种流程：在各自设备上理解自然语言描述，将受�
 4. 研究异步发现、过期、节点故障与元数据泄露。
 5. 对具体协议与实现开展独立评审。
 
-欢迎通过 [GitHub Issues](https://github.com/BillyBiano/BLIND/issues) 提交可复现的反例、技术修正、实验建议和相关研究。完整技术定义及参考文献见 [RFC-0001](docs/rfcs/0001-private-semantic-rendezvous.md)。
+欢迎通过 [GitHub Issues](https://github.com/BillyBiano/PPSR/issues) 提交可复现的反例、技术修正、实验建议和相关研究。完整技术定义及参考文献见 [RFC-0001](docs/rfcs/0001-private-semantic-rendezvous.md)。

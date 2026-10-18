@@ -1,6 +1,8 @@
-# BLIND
+# PPSR
 
-### Privacy-Preserving Semantic Rendezvous
+### Privacy-preserving semantic rendezvous
+
+**private intent, mutual discovery**
 
 Discover compatible people without asking a discovery operator to read their private intentions. Share contact information only after both participants agree.
 
@@ -49,7 +51,7 @@ The two-operator profile depends on a non-collusion assumption. Embeddings are p
 
 This repository contains a **research proposal and evaluation plan**. It does not yet contain a cryptographic implementation, benchmark results, a security proof, or an independent audit. There is no runnable application or installation procedure.
 
-BLIND studies how existing techniques could compose into private discovery. It does not claim a new cryptographic primitive, absolute anonymity, zero leakage, or a first-of-its-kind result. “RFC” means this project's request for comments, not standards-body endorsement.
+PPSR studies how existing techniques could compose into private discovery. It does not claim a new cryptographic primitive, absolute anonymity, zero leakage, or a first-of-its-kind result. “RFC” means this project's request for comments, not standards-body endorsement.
 
 The scope is discovery before contact. Payment, settlement, messaging, and verification of participant truthfulness are outside it. Early experiments should use synthetic or appropriately consented, non-sensitive material.
 
@@ -69,4 +71,4 @@ See the [roadmap](docs/ROADMAP.md) for the evidence required at each stage.
 - [Research roadmap](docs/ROADMAP.md): staged experiments and open implementation decisions.
 - [Contribution guide](CONTRIBUTING.md): how to propose a correction, counterexample, or experiment.
 
-Technical feedback is welcome through [GitHub Issues](https://github.com/BillyBiano/BLIND/issues). Particularly useful contributions include reproducible counterexamples, concrete leakage analyses, and relevant prior work.
+Technical feedback is welcome through [GitHub Issues](https://github.com/BillyBiano/PPSR/issues). Particularly useful contributions include reproducible counterexamples, concrete leakage analyses, and relevant prior work.
